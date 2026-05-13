@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a">
+<title>Подготовка к аттестации — 7 гып — Тайпан</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0a0a0a;
+  --dark: #141414;
+  --dark2: #1c1c1c;
+  --dark3: #262626;
+  --red: #c8102e;
+  --red-hot: #ff1a3c;
+  --red-dim: #8a0a1f;
+  --white: #f5f5f5;
+  --gray: #888;
+  --gray-dim: #4a4a4a;
+  --gray-light: #b8b8b8;
+  --green: #3a9a3a;
+  --yellow: #FFD700;
+  --blue: #4a9aff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+body {
+  background-image:
+    radial-gradient(circle at 20% 0%, rgba(200, 16, 46, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 100%, rgba(200, 16, 46, 0.05) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+.header { position: sticky; top: 0; z-index: 100; background: rgba(10, 10, 10, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--dark3); padding: 14px 20px; }
+.header-row { display: flex; align-items: center; justify-content: space-between; max-width: 720px; margin: 0 auto; gap: 12px; }
+.brand { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; color: var(--white); }
+.brand .accent { color: var(--red); }
+.belt-mini { display: inline-block; width: 60px; height: 14px; border-radius: 3px; background: linear-gradient(to right, var(--yellow) 50%, var(--green) 50%); vertical-align: middle; margin-left: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.5); }
+
+.hero { max-width: 720px; margin: 0 auto; padding: 32px 20px 20px; text-align: center; }
+.hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(38px, 9vw, 64px); line-height: 0.95; letter-spacing: 1px; color: var(--white); margin-bottom: 6px; }
+.hero h1 .red { color: var(--red); display: block; }
+.hero .subtitle { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 500; color: var(--gray-light); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 24px; }
+
+.exam-card { max-width: 720px; margin: 0 auto 24px; padding: 0 20px; }
+.exam-info { background: linear-gradient(135deg, var(--dark2) 0%, var(--dark) 100%); border: 1px solid var(--dark3); border-left: 4px solid var(--red); border-radius: 4px; padding: 18px 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.exam-info .stat { text-align: center; }
+.exam-info .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 36px; line-height: 1; color: var(--red); margin-bottom: 2px; }
+.exam-info .stat-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gray); }
+
+.progress-block { max-width: 720px; margin: 0 auto 24px; padding: 0 20px; }
+.progress-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.progress-head .label { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: var(--gray); }
+.progress-head .value { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--white); }
+.progress-bar { height: 8px; background: var(--dark2); border-radius: 4px; overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--red-dim), var(--red), var(--red-hot)); border-radius: 4px; transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 0 12px rgba(200, 16, 46, 0.6); }
+
+.legend { max-width: 720px; margin: 0 auto 16px; padding: 0 20px; display: flex; flex-wrap: wrap; gap: 8px 12px; justify-content: center; }
+.legend-item { display: inline-flex; align-items: center; gap: 6px; font-family: 'Barlow Condensed', sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--gray-light); }
+.legend-dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+
+.sched-note { max-width: 720px; margin: 0 auto 16px; padding: 0 20px; }
+.sched-note-box { background: var(--dark); border: 1px solid var(--dark3); border-radius: 4px; padding: 12px 14px; font-size: 13px; color: var(--gray-light); line-height: 1.6; }
+.sched-note-box strong { color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; display: block; margin-bottom: 6px; }
+.sched-line { display: flex; gap: 8px; align-items: baseline; margin: 2px 0; }
+.sched-pill { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; padding: 2px 6px; border-radius: 2px; white-space: nowrap; }
+.sched-pill-gym { background: var(--red); color: var(--white); }
+.sched-pill-solo { background: var(--yellow); color: var(--black); }
+
+.controls { max-width: 720px; margin: 0 auto 20px; padding: 0 20px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.btn { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; padding: 9px 16px; border-radius: 3px; cursor: pointer; transition: all 0.2s; border: 1px solid var(--dark3); background: var(--dark2); color: var(--white); }
+.btn:hover { background: var(--dark3); border-color: var(--gray-dim); }
+.btn-primary { background: var(--red); border-color: var(--red); }
+.btn-primary:hover { background: var(--red-hot); border-color: var(--red-hot); box-shadow: 0 4px 12px rgba(200, 16, 46, 0.4); }
+.btn-ghost { background: transparent; }
+
+.days { max-width: 720px; margin: 0 auto; padding: 0 20px 80px; }
+.day { background: var(--dark); border: 1px solid var(--dark3); border-radius: 4px; margin-bottom: 10px; overflow: hidden; transition: border-color 0.2s; position: relative; }
+.day.today { border-color: var(--red); border-width: 2px; box-shadow: 0 0 20px rgba(200, 16, 46, 0.2); }
+.day.gym::before, .day.solo::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+.day.gym::before { background: var(--red); }
+.day.solo::before { background: var(--yellow); }
+.day.exam { border: 2px solid var(--red); background: linear-gradient(135deg, var(--dark) 0%, rgba(200, 16, 46, 0.15) 100%); box-shadow: 0 0 24px rgba(200, 16, 46, 0.35); }
+.day.past { opacity: 0.55; }
+
+.day-head { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; cursor: pointer; user-select: none; transition: background 0.15s; }
+.day-head:hover { background: rgba(255, 255, 255, 0.02); }
+.day-info { flex: 1; min-width: 0; }
+.day-date { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; color: var(--white); line-height: 1; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.today-mark, .day-badge { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 1px; padding: 3px 7px; border-radius: 2px; text-transform: uppercase; }
+.today-mark { background: var(--red); color: var(--white); }
+.day-badge-gym { background: var(--red); color: var(--white); }
+.day-badge-solo { background: var(--yellow); color: var(--black); }
+.day-sub { font-family: 'Barlow', sans-serif; font-size: 13px; color: var(--gray-light); font-weight: 400; }
+.day-meta { text-align: right; flex-shrink: 0; margin-left: 12px; }
+.day-count { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--white); line-height: 1; font-variant-numeric: tabular-nums; }
+.day-count.complete { color: var(--green); }
+.day-count-total { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+.chevron { margin-left: 12px; color: var(--gray); font-size: 18px; transition: transform 0.25s; }
+.day.open .chevron { transform: rotate(90deg); color: var(--red); }
+
+.tasks { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+.day.open .tasks { max-height: 12000px; }
+.tasks-inner { padding: 4px 18px 18px; border-top: 1px solid var(--dark3); padding-top: 12px; }
+
+.task-section { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gray); margin: 14px 0 6px; padding-bottom: 4px; border-bottom: 1px solid var(--dark3); }
+.task-section:first-child { margin-top: 0; }
+
+.task { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; border-bottom: 1px dashed var(--dark3); }
+.task:last-child { border-bottom: none; }
+.task input[type=checkbox] { appearance: none; -webkit-appearance: none; width: 22px; height: 22px; border: 2px solid var(--gray-dim); border-radius: 3px; background: var(--dark2); cursor: pointer; flex-shrink: 0; margin-top: 1px; position: relative; transition: all 0.15s; }
+.task input[type=checkbox]:hover { border-color: var(--red); }
+.task input[type=checkbox]:checked { background: var(--red); border-color: var(--red); }
+.task input[type=checkbox]:checked::after { content: ''; position: absolute; left: 6px; top: 2px; width: 5px; height: 11px; border: solid var(--white); border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
+.task-body { flex: 1; }
+.task label { cursor: pointer; font-size: 14.5px; line-height: 1.5; color: var(--white); display: block; }
+.task.done label { color: var(--gray); text-decoration: line-through; text-decoration-color: var(--gray-dim); }
+
+.answer-toggle { margin-top: 6px; background: none; border: 1px dashed var(--gray-dim); color: var(--yellow); font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; padding: 4px 10px; border-radius: 3px; cursor: pointer; transition: all 0.2s; }
+.answer-toggle:hover { background: rgba(255, 215, 0, 0.1); border-style: solid; }
+.answer-toggle.open { background: rgba(255, 215, 0, 0.08); border-color: var(--yellow); border-style: solid; }
+
+.answer-block { display: none; margin-top: 6px; border-radius: 0 3px 3px 0; }
+.answer-block.show { display: block; }
+.answer-text { background: var(--black); border-left: 3px solid var(--yellow); padding: 10px 12px; font-size: 14px; color: var(--white); line-height: 1.6; font-weight: 500; }
+.answer-comment { background: var(--dark2); border-left: 3px solid var(--gray-dim); padding: 9px 12px; margin-top: 4px; font-size: 13.5px; color: var(--gray-light); line-height: 1.65; font-style: italic; }
+.answer-comment strong { color: var(--white); font-style: normal; }
+
+.modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); display: none; align-items: center; justify-content: center; padding: 20px; z-index: 200; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.modal-overlay.show { display: flex; }
+.modal-box { background: var(--dark); border: 1px solid var(--dark3); border-top: 4px solid var(--red); border-radius: 4px; max-width: 460px; width: 100%; padding: 28px; }
+.modal-box h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; margin-bottom: 12px; color: var(--white); }
+.modal-box .report-text { background: var(--black); border: 1px solid var(--dark3); border-radius: 3px; padding: 14px; font-family: 'Barlow', sans-serif; font-size: 14px; line-height: 1.6; white-space: pre-wrap; max-height: 280px; overflow-y: auto; margin: 14px 0; color: var(--gray-light); }
+.modal-actions { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
+
+.toast { position: fixed; top: 80px; left: 50%; transform: translateX(-50%); background: var(--green); color: var(--white); padding: 10px 20px; border-radius: 3px; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; z-index: 300; opacity: 0; pointer-events: none; transition: opacity 0.25s; }
+.toast.show { opacity: 1; }
+
+.footer { max-width: 720px; margin: 0 auto; padding: 0 20px 30px; text-align: center; font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 1px; color: var(--gray-dim); text-transform: uppercase; }
+.footer .quote { font-family: 'Barlow', serif; font-style: italic; font-size: 13px; color: var(--gray); text-transform: none; letter-spacing: 0; margin-bottom: 12px; line-height: 1.6; }
+
+@media (max-width: 480px) {
+  .exam-info { padding: 14px; gap: 8px; }
+  .exam-info .stat-num { font-size: 28px; }
+  .controls { gap: 6px; }
+  .btn { padding: 8px 12px; font-size: 12px; }
+  .legend-item { font-size: 11px; }
+  .day-head { padding: 12px 14px; }
+  .day-date { font-size: 19px; }
+  .tasks-inner { padding: 4px 14px 14px; padding-top: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-row">
+    <div class="brand">ТАЙ<span class="accent">ПАН</span></div>
+    <div style="font-family:'Barlow Condensed';font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--gray-light)">
+      7 ГЫП <span class="belt-mini" aria-hidden="true"></span>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>17 ДНЕЙ<span class="red">ДО ПОЯСА</span></h1>
+  <div class="subtitle">Аттестация · 30 мая 2026</div>
+</section>
+
+<section class="exam-card">
+  <div class="exam-info">
+    <div class="stat"><div class="stat-num" id="days-left">—</div><div class="stat-label">Осталось дней</div></div>
+    <div class="stat"><div class="stat-num" id="done-count">—</div><div class="stat-label">Сделано</div></div>
+    <div class="stat"><div class="stat-num" id="total-count">—</div><div class="stat-label">Всего задач</div></div>
+  </div>
+</section>
+
+<section class="progress-block">
+  <div class="progress-head"><span class="label">Общий прогресс</span><span class="value" id="progress-percent">0%</span></div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+</section>
+
+<section class="sched-note">
+  <div class="sched-note-box">
+    <strong>Тренировки с тренером</strong>
+    <div class="sched-line"><span class="sched-pill sched-pill-gym">Зал</span> Вт, Чт, Сб — групповая</div>
+    <div class="sched-line"><span class="sched-pill sched-pill-solo">Индивид.</span> Ср — отдельно с тренером</div>
+    <div style="margin-top:6px;color:var(--gray);font-size:12px">В дни тренировок дома — только лёгкая растяжка и теория</div>
+  </div>
+</section>
+
+<section class="legend">
+  <span class="legend-item"><span class="legend-dot" style="background:var(--blue)"></span>Растяжка</span>
+  <span class="legend-item"><span class="legend-dot" style="background:var(--green)"></span>Теория</span>
+  <span class="legend-item"><span class="legend-dot" style="background:var(--red-hot)"></span>Корейский</span>
+  <span class="legend-item"><span class="legend-dot" style="background:var(--yellow)"></span>Хъёнг в уме</span>
+  <span class="legend-item"><span class="legend-dot" style="background:var(--gray-light)"></span>Папа спросит</span>
+</section>
+
+<section class="controls">
+  <button class="btn btn-primary" onclick="openReport()">Отчёт папе</button>
+  <button class="btn" onclick="expandAll()">Развернуть всё</button>
+  <button class="btn" onclick="collapseAll()">Свернуть всё</button>
+  <button class="btn btn-ghost" onclick="resetAll()">Сброс</button>
+</section>
+
+<section class="days" id="days-root"></section>
+
+<footer class="footer">
+  <div class="quote">«Тхэквондо — путь физического, умственного и духовного развития». — Чой Хон Хи</div>
+  taipan-tkd.ru
+</footer>
+
+<div class="modal-overlay" id="report-modal" onclick="if(event.target===this)closeReport()">
+  <div class="modal-box">
+    <h2>Отчёт для папы</h2>
+    <p style="font-size:13px;color:var(--gray-light);">Скопируй и отправь в мессенджер. Папа увидит твой прогресс по дням.</p>
+    <div class="report-text" id="report-text"></div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" onclick="copyReport()">Скопировать</button>
+      <button class="btn" onclick="closeReport()">Закрыть</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">Скопировано</div>
+
+<script>
+'use strict';
+
+const EXAM_DATE = new Date(2026, 4, 30);
+
+// Структура: t — текст задачи, ans — ответ (для check), why — объяснение/комментарий
+const DAYS = [
+  {date:'Ср, 13 мая', iso:'2026-05-13', sub:'Индивидуально с тренером. Дома — философия', kind:'solo', tasks:[
+    {sec:'РАСТЯЖКА (после индивидуальной)', items:[
+      {c:'stretch', t:'Лёгкая заминка — наклоны 2 мин'},
+      {c:'stretch', t:'Продольный шпагат — по 1 мин на каждую ногу'},
+    ]},
+    {sec:'ФИЛОСОФИЯ ТХЭКВОНДО', items:[
+      {c:'theory', t:'Определение: тхэквондо — корейское боевое искусство и Олимпийский вид спорта'},
+      {c:'theory', t:'Перевод названия: тхэ (нога) + квон (кулак) + до (путь) = «путь ноги и кулака»'},
+      {c:'theory', t:'Основатель — генерал Чой Хон Хи. Объявление о создании стиля: 11 апреля 1955 г.'},
+    ]},
+    {sec:'ХЪЁНГ', items:[
+      {c:'mind', t:'Прокрутить До-Сан в голове, медленно, по шагам'},
+    ]},
+    {sec:'ПАПА СПРОСИТ', items:[
+      {c:'check', t:'Что такое тхэквондо?', ans:'Корейское боевое искусство и Олимпийский вид спорта.', why:'Это не просто драка — это национальное искусство Кореи. С 2000 года тхэквондо включено в программу Олимпийских игр (стиль ВТФ).'},
+      {c:'check', t:'Как переводится слово «тхэквондо»?', ans:'Путь ноги и кулака.', why:'Корейское слово состоит из трёх частей: <strong>тхэ</strong> — нога, <strong>квон</strong> — кулак (рука), <strong>до</strong> — путь. То есть путь развития через работу руками и ногами.'},
+      {c:'check', t:'Кто основал тхэквондо и когда было объявлено о создании стиля?', ans:'Генерал Чой Хон Хи. 11 апреля 1955 года.', why:'Чой Хон Хи был корейским военным и мастером боевых искусств. Он собрал разные корейские стили в единую систему и предложил название «тхэквондо» на специальном собрании 11 апреля 1955 г. Эту дату считают днём рождения стиля.'},
+    ]},
+  ]},
+  {date:'Чт, 14 мая', iso:'2026-05-14', sub:'Тренировка в зале. Дома — 5 принципов', kind:'gym', tasks:[
+    {sec:'РАСТЯЖКА (после зала)', items:[
+      {c:'stretch', t:'Наклоны вперёд из положения сидя — 2 мин'},
+      {c:'stretch', t:'Продольный шпагат — по 1,5 мин на каждую ногу'},
+    ]},
+    {sec:'5 ПРИНЦИПОВ ТХЭКВОНДО', items:[
+      {c:'theory', t:'Их пять. Знай порядок и расшифровку'},
+      {c:'theory', t:'1. Учтивость (вежливость) — Йе-уи'},
+      {c:'theory', t:'2. Честность — Йом-чи'},
+      {c:'theory', t:'3. Настойчивость (терпение) — Иннэ'},
+      {c:'theory', t:'4. Самообладание (самоконтроль) — Гук-ги'},
+      {c:'theory', t:'5. Непоколебимость духа — Бэкчуль-бульгуль'},
+    ]},
+    {sec:'ХЪЁНГ', items:[
+      {c:'mind', t:'Прогон До-Сан ×2'},
+    ]},
+    {sec:'ПАПА СПРОСИТ', items:[
+      {c:'check', t:'Сколько принципов тхэквондо?', ans:'Пять.', why:'Эти пять — основа этики тхэквондо. Их сформулировал генерал Чой Хон Хи как кодекс поведения мастера и ученика.'},
+      {c:'check', t:'Перечисли все пять в правильном порядке.', ans:'1. Учтивость (вежливость). 2. Честность. 3. Настойчивость (терпение). 4. Самообладание (самоконтроль). 5. Непоколебимость духа.', why:'Порядок важен: сначала <strong>внешние</strong> качества (учтивость к людям, честность), потом <strong>внутренние</strong> (терпение, самоконтроль), и наконец <strong>дух</strong> — непоколебимость даже перед страхом и поражением.'},
+    ]},
+  ]},
+  {date:'Пт, 15 мая', iso:'2026-05-15', sub:'Свободный день. История и федерации', kind:'free', tasks:[
+    {sec:'РАСТЯЖКА (полный блок)', items:[
+      {c:'stretch', t:'Разминка суставов — 3 мин (шея, плечи, таз, колени)'},
+      {c:'stretch', t:'Махи ногами вперёд / в сторону — по 15 на каждую'},
+      {c:'stretch', t:'Продольный шпагат — по 2 мин на каждую ногу'},
+      {c:'stretch', t:'Поперечный шпагат — 3 мин'},
+      {c:'stretch', t:'Наклоны к ногам сидя — 2 мин'},
+      {c:'stretch', t:'Мостик — 30 сек × 2'},
+    ]},
+    {sec:'ИСТОРИЯ И ФЕДЕРАЦИИ', items:[
+      {c:'theory', t:'ИТФ — Международная федерация тхэквондо. Основал Чой Хон Хи. Дата основания: 22 марта 1966 г.'},
+      {c:'theory', t:'ГТФ — Глобальная федерация тхэквондо. Основана в 1990 году'},
+      {c:'theory', t:'ВТФ (WTF) — Всемирная федерация тхэквондо. Представлена на Олимпийских играх'},
+      {c:'theory', t:'В тхэквондо ГТФ — 10 гыпов (с 10 младшего до 1 старшего)'},
+      {c:'theory', t:'Цвета ученических поясов в ГТФ: белый, жёлтый, зелёный, синий, красный. Фиолетового — НЕТ'},
+    ]},
+    {sec:'ХЪЁНГ', items:[
+      {c:'mind', t:'Прогон До-Сан ×2'},
+    ]},
+    {sec:'ПАПА СПРОСИТ', items:[
+      {c:'check', t:'Когда была образована Глобальная федерация тхэквондо?', ans:'В 1990 году.', why:'ГТФ создана как <strong>третья</strong> крупная организация (после ИТФ и ВТФ). Наш клуб «Тайпан» входит в Федерацию тхэквондо ГТФ России.'},
+      {c:'check', t:'Какая федерация представлена на Олимпийских играх?', ans:'ВТФ (WTF) — Всемирная федерация тхэквондо.', why:'Только ВТФ-тхэквондо — олимпийский вид спорта (с 2000 года, Сидней). ИТФ и ГТФ имеют свои отдельные международные турниры.'},
+      {c:'check', t:'Сколько гыпов в тхэквондо ГТФ?', ans:'Десять (10).', why:'Гыпы идут от 10 (младший, белый пояс) до 1 (старший, красный с чёрной полосой). После 1 гыпа сдают на 1 дан — мастерскую степень.'},
+      {c:'check', t:'Какого цвета НЕТ среди ученических поясов?', ans:'Фиолетового.', why:'Цвета имеют символику: белый — чистота начинающего, жёлтый — земля, зелёный — росток, синий — небо, красный — опасность и предупреждение мастеру быть осторожным. Фиолетового в этой системе нет.'},
+    ]},
+  ]},
+  {date:'Сб, 16 мая', iso:'2026-05-16', sub:'Тренировка в зале. Клятва, добок, этикет', kind:'gym', tasks:[
+    {sec:'РАСТЯЖКА (после зала)', items:[
+      {c:'stretch', t:'Продольный шпагат — по 2 мин'},
+      {c:'stretch', t:'Поперечный шпагат — 3 мин'},
+      {c:'stretch', t:'Наклоны сидя — 3 мин'},
+    ]},
+    {sec:'КЛЯТВА ТХЭКВОНДИСТА', items:[
+      {c:'theory', t:'Клятва содержит обязательство уважать всех старших по возрасту и положению, а также наставников'},
+      {c:'theory', t:'Последняя строка клятвы посвящена усилиям к созданию мира без войн'},
+    ]},
+    {sec:'ПОЯСА И СТЕПЕНИ', items:[
+      {c:'theory', t:'Ученическая степень — ГЫП (с 10 младшего по 1 старший)'},
+      {c:'theory', t:'Мастерская степень — ДАН (с 1 по 9)'},
+    ]},
+    {sec:'ОДЕЖДА И ЭТИКЕТ', items:[
+      {c:'theory', t:'Форма для занятий — ДОБОК (НЕ кимоно — кимоно у японцев)'},
+      {c:'theory', t:'Зал по-корейски — ДОДЖАН'},
+      {c:'theory', t:'Поклон — корейская форма приветствия и выражение уважения'},
+    ]},
+    {sec:'ЗАЧЕМ СДАВАТЬ ЭКЗАМЕН', items:[
+      {c:'theory', t:'Демонстрация знаний, обретение уверенности, допуск к соревнованиям — все три причины важны'},
+    ]},
+    {sec:'ХЪЁНГ', items:[
+      {c:'mind', t:'Прогон До-Сан ×3 (медленно, средне, в боевом темпе)'},
+    ]},
+    {sec:'ПАПА СПРОСИТ', items:[
+      {c:'check', t:'Как называется форма для занятий?', ans:'Добок.', why:'Кимоно — это японское слово (для дзюдо, каратэ). У корейского тхэквондо своё название — <strong>добок</strong> («одежда пути»). Путать нельзя.'},
+      {c:'check', t:'Как называется зал по-корейски?', ans:'Доджан.', why:'Также пишут «доянг». «До» — путь, «джан» — место. Дословно — «место пути». Не путать с японским «додзё».'},
+      {c:'check', t:'Гып и дан — что это?', ans:'Гып — ученическая степень (с 10 по 1). Дан — мастерская степень (с 1 по 9).', why:'Гыпы идут <strong>от большего к меньшему</strong>: чем меньше число — тем выше уровень. Даны наоборот — <strong>от меньшего к большему</strong>: 1 дан → 9 дан.'},
+      {c:'check', t:'Что означает поклон?', ans:'Корейская форма приветствия и выражение уважения.', why:'Поклон — не «преклонение», а знак уважения. Кланяются тренеру, партнёру по спаррингу, залу при входе и выходе. Это часть этикета.'},
+      {c:'check', t:'Какое обязательство в клятве тхэквондиста?', ans:'Уважать всех старших по возрасту и положению, а также наставников.', why:'Это первое из обязательств. Уважение в восточной культуре — основа всего, без него нельзя стать мастером.'},
+      {c:'check', t:'Чему посвящена последняя строка клятвы?', ans:'Прилагать усилия к созданию мира без войн.', why:'Хотя тхэквондо — боевое искусство, его цель — не агрессия, а защита и мир. Поэтому клятва завершается обещанием работать на мир, а не разрушение.'},
+    ]},
+  ]},
+  {date:'Вс, 17 мая', iso:'2026-05-17', sub:'Свободный день. Корейский язык целиком', kind:'free', tasks:[
+    {sec:'РАСТЯЖКА (полный блок)', items:[
+      {c:'stretch', t:'Разминка суставов — 3 мин'},
+      {c:'stretch', t:'Махи ногами — по 20 на каждую'},
+      {c:'stretch', t:'Продольный шпагат — по 2 мин на каждую ногу'},
+      {c:'stretch', t:'Поперечный шпагат — 4 мин'},
+      {c:'stretch', t:'Наклоны к одной ноге, к другой, к двум — 1 мин на каждое'},
+      {c:'stretch', t:'Мостик — 45 сек × 2'},
+    ]},
+    {sec:'КОРЕЙСКИЙ СЧЁТ 1-10', items:[
+      {c:'korean', t:'1 — хана'},
+      {c:'korean', t:'2 — туль'},
+      {c:'korean', t:'3 — сет'},
+      {c:'korean', t:'4 — нет'},
+      {c:'korean', t:'5 — дасот'},
+      {c:'korean', t:'6 — йосот'},
+      {c:'korean', t:'7 — ильхоп'},
+      {c:'korean', t:'8 — йодоль'},
+      {c:'korean', t:'9 — ахоп'},
+      {c:'korean', t:'10 — йоль'},
+      {c:'korean', t:'Повторить вслух 3 раза подряд без подсказки'},
+    ]},
+    {sec:'КОМАНДЫ ТРЕНЕРА', items:[
+      {c:'korean', t:'ЧУМБИ — приготовиться'},
+      {c:'korean', t:'СИ ДЖАК — начать'},
+      {c:'korean', t:'БАРО — стоп, закончить'},
+      {c:'korean', t:'ХЭЧЁ — разойтись'},
+      {c:'korean', t:'КЁНЭ — поклон'},
+    ]},
+    {sec:'ХЪЁНГ', items:[
+      {c:'mind', t:'Прогон До-Сан ×3'},
+    ]},
+    {sec:'ПАПА СПРОСИТ', items:[
+      {c:'check', t:'Посчитай по-корейски от 1 до 10.', ans:'Хана, туль, сет, нет, дасот, йосот, ильхоп, йодоль, ахоп, йоль.', why:'Это исконно-корейский счёт (есть ещё китайско-корейский). Тренер использует <strong>именно эти числительные</strong> при счёте повторений в упражнениях.'},
+      {c:'check', t:'Как звучит «приготовиться»?', ans:'Чумби.', why:'Это первая команда любого упражнения. Услышав «чумби», ученик встаёт в стойку готовности и ждёт следующую команду.'},
+      {c:'check', t:'Как звучит «начать»?', ans:'Си джак.', why:'После «чумби» (приготовиться) идёт «си джак» (начать). Это сигнал к выполнению.'},
+      {c:'check', t:'Как звучит «стоп, закончить»?', ans:'Баро.', why:'«Баро» останавливает выполнение и возвращает в исходное положение. Также используется для команды «вернуться в стойку готовности».'},
+      {c:'check', t:'Что обозначает команда «ХЭЧЁ»?', ans:'Разойтись.', why:'Команда даётся в конце тренировки или для перехода к свободной работе. Дословно — «разделиться».'},
+      {c:'check', t:'Как звучит команда «поклон»?', ans:'Кёнэ.', why:'Слышишь «кёнэ» — кланяешься. Тренеру, партнёру, залу. Это команда уважения.'},
+    ]},
+  ]},
+  {date:'Пн, 18 мая', iso:'2026-05-18', sub:'Свободный день. Стойки и направления', kind:'free', tasks:[
+    {sec:'РАСТЯЖКА', items:[
+      {c:'stretch', t:'Разминка 3 мин'},
+      {c:'stretch', t:'Продольный шпагат — по 2 мин'},
+      {c:'stretch', t:'Поперечный шпагат — 3 мин'},
+      {c:'stretch', t:'Наклоны — 2 мин'},
+    ]},
+    {sec:'СТОЙКИ (СОГИ)', items:[
+      {c:'korean', t:'СОГИ = стойка (общий термин)'},
+      {c:'korean', t:'ЧАРЁТ СОГИ — стойка «смирно»'},
+      {c:'korean', t:'НАРАНИ СОГИ — параллельная стойка'},
+      {c:'korean', t:'АННУН СОГИ — стойка «всадника»'},
+      {c:'korean', t:'ГУННУН СОГИ — стойка «ходьбы» (передняя длинная)'},
+      {c:'korean', t:'НИУНДЖА СОГИ — задняя стойка (для До-Сан)'},
+    ]},
+    {sec:'НАПРАВЛЕНИЯ', items:[
+      {c:'korean', t:'АП — вперёд'},
+      {c:'korean', t:'ДВИТ — назад'},
+    ]},
+    {sec:'ХЪЁНГ', items:[
+      {c:'mind', t:'Прогон До-Сан ×2'},
+    ]},
+    {sec:'ПАПА СПРОСИТ', items:[
+      {c:'check', t:'Что означает «соги»?', ans:'Стойка.', why:'«Соги» — общее название для любой стойки. Перед словом ставится уточнение: чарёт соги, нарани соги и т.д.'},
+      {c:'check', t:'Что означает «чарёт соги»?', ans:'Стойка «смирно».', why:'Базовая стойка уважения. Пятки вместе, носки врозь, руки по швам. С неё начинается и заканчивается любое выполнение.'},
+      {c:'check', t:'Что означает «нарани соги»?', ans:'Параллельная стойка.', why:'Стопы параллельны друг другу на ширине плеч. Это стойка готовности для упражнений.'},
+      {c:'check', t:'Что означает «аннун соги»?', ans:'Стойка «всадника».', why:'Широкая стойка с глубоким приседом, как будто сидишь на лошади. Развивает силу ног.'},
+      {c:'check', t:'Что означает «гуннун соги»?', ans:'Стойка «ходьбы» (передняя длинная).', why:'Одна нога впереди, согнута; другая сзади, прямая. На переднюю ногу — 60-70% веса. Используется для атаки вперёд.'},
+      {c:'check', t:'Что значит «ап» и что значит «двит»?', ans:'Ап — вперёд. Двит — назад.', why:'Это направления. Прибавляются к названиям ударов и блоков: ап чаги — удар вперёд, двит чаги — удар назад.'},
+    ]},
+  ]},
+  {date:'Вт, 19 мая', iso:'2026-05-19', sub:'Тренировка в зале. Дома — удары руками', kind:'gym', tasks:[
+    {sec:'РАСТЯЖКА (после зала)', items:[
+      {c:'stretch', t:'Продольный шпагат — по 1,5 мин'},
+      {c:'stretch', t:'Наклоны — 2 мин'},
+    ]},
+    {sec:'ТИПЫ УДАРОВ', items:[
+      {c:'korean', t:'ЧИРУГИ — пробивающий удар (кулаком)'},
+      {c:'korean', t:'ТЭРИГИ — рубящий удар'},
+      {c:'korean', t:'ЧАГИ — удар ногой'},
+    ]},
+    {sec:'ЧАСТИ ТЕЛА (УДАРНЫЕ ПОВЕРХНОСТИ)', items:[
+      {c:'korean', t:'ДЖУМОК — кулак'},
+      {c:'korean', t:'СОНКАЛЬ — ребро ладони (со стороны мизинца)'},
+      {c:'korean', t:'ПАЛЬМОК — предплечье'},
+    ]},
+    {sec:'ХЪЁНГ', items:[
+      {c:'mind', t:'Прогон До-Сан ×2'},
+    ]},
+    {sec:'ПАПА СПРОСИТ', items:[
+      {c:'check', t:'Что значит «чируги»?', ans:'Пробивающий удар.', why:'Это <strong>прямой удар</strong>, который проходит цель насквозь по принципу. Обычно выполняется кулаком (апчумок).'},
+      {c:'check', t:'Что значит «тэриги»?', ans:'Рубящий удар.', why:'Удар по <strong>дугообразной траектории</strong> — сверху вниз, сбоку или снизу вверх. Например, сонкаль тэриги — рубящий удар ребром ладони.'},
+      {c:'check', t:'Что значит «чаги»?', ans:'Удар ногой.', why:'Любой удар ногой называется «чаги». Перед словом — уточнение: ап чаги (вперёд), доллио чаги (круговой), ёп чаги (боковой).'},
+      {c:'check', t:'Что такое «джумок»?', ans:'Кулак.', why:'Полное название ударной поверхности кулака — <strong>апчумок</strong> (передний кулак, костяшки указательного и среднего пальцев). Просто «джумок» = кулак вообще.'},
+      {c:'check', t:'Что такое «сонкаль»?', ans:'Ребро ладони со стороны мизинца.', why:'Жёсткая твёрдая часть кисти. Этой частью наносят рубящие удары (сонкаль тэриги) и блоки (сонкаль макки).'},
+      {c:'check', t:'Что такое «пальмок»?', ans:'Предплечье.', why:'Это участок руки от кисти до локтя. Используется для блоков — внутренней или внешней стороной предплечья.'},
+    ]},
+  ]},
+  {date:'Ср, 20 мая', iso:'2026-05-20', sub:'Индивидуально с тренером. Дома — удары ногами', kind:'solo', tasks:[
+    {sec:'РАСТЯЖКА', items:[
+      {c:'stretch', t:'Продольный шпагат — по 2 мин'},
+      {c:'stretch', t:'Поперечный шпагат — 3 мин'},
+    ]},
+    {sec:'УДАРЫ НОГАМИ (ЧАГИ)', items:[
+      {c:'korean', t:'АП ЧАГИ — передний удар, пронзающий (вперёд)'},
+      {c:'korean', t:'ДОЛЛИО ЧАГИ — круговой удар (полукруговой)'},
+      {c:'korean', t:'ЁП ЧАГИ — боковой удар (важно для 7 гыпа)'},
+      {c:'korean', t:'ТВИТ ЧАГИ — удар назад'},
+    ]},
+    {sec:'ЗОНЫ ТЕЛА (УРОВНИ)', items:[
+      {c:'theory', t:'НАДЖУНДЭ — нижняя часть тела (от пояса вниз)'},
+      {c:'theory', t:'КАУНДЭ — средняя часть тела (от пояса до плеч)'},
+      {c:'theory', t:'НОПУНДЭ — верхняя часть тела (голова, шея)'},
+    ]},
+    {sec:'ХЪЁНГ', items:[
+      {c:'mind', t:'Прогон До-Сан ×2'},
+    ]},
+    {sec:'ПАПА СПРОСИТ', items:[
+      {c:'check', t:'Что означает «ап чаги»?', ans:'Передний удар, пронзающий (удар ногой вперёд).', why:'«Ап» = вперёд, «чаги» = удар ногой. Самый базовый удар ногой — прямо вперёд, носком или подушечкой стопы.'},
+      {c:'check', t:'Что означает «доллио чаги»?', ans:'Круговой удар.', why:'«Доллио» = круговой/поворотный. Удар идёт <strong>по дуге</strong> — от бедра в сторону через разворот. Бьют подъёмом стопы или пяткой.'},
+      {c:'check', t:'Что означает «ёп чаги»?', ans:'Боковой удар.', why:'«Ёп» = сторона. Удар идёт <strong>боком</strong> — ребром стопы, корпус повёрнут к противнику боком. Очень мощный, но требует устойчивого равновесия.'},
+      {c:'check', t:'Что означают термины «наджундэ, каундэ, нопундэ»?', ans:'Нижняя, средняя, верхняя части тела.', why:'Эти три уровня показывают, <strong>куда направлен удар или блок</strong>. Например, «каундэ чируги» = удар кулаком в среднюю зону (корпус).'},
+    ]},
+  ]},
+  {date:'Чт, 21 мая', iso:'2026-05-21', sub:'Тренировка в зале. Дома — блоки', kind:'gym', tasks:[
+    {sec:'РАСТЯЖКА (после зала)', items:[
+      {c:'stretch', t:'Продольный шпагат — по 1,5 мин'},
+      {c:'stretch', t:'Поперечный шпагат — 2 мин'},
+    ]},
+    {sec:'БЛОКИ (МАККИ)', items:[
+      {c:'korean', t:'МАККИ — общий термин для блока'},
+      {c:'korean', t:'НАДЖУНДЭ МАККИ — защита нижней части тела'},
+      {c:'korean', t:'КАУНДЭ МАККИ — защита средней части тела'},
+      {c:'korean', t:'ЧУКЁ МАККИ — верхний блок'},
+      {c:'korean', t:'ХЕЧЁ МАККИ — расклинивающий (распахивающий) блок'},
+    ]},
+    {sec:'ХЪЁНГ', items:[
+      {c:'mind', t:'Прогон До-Сан ×2'},
+    ]},
+    {sec:'ПАПА СПРОСИТ', items:[
+      {c:'check', t:'Что такое «наджундэ макки»?', ans:'Защита нижней части тела.', why:'«Наджундэ» = низ, «макки» = блок. Рукой сметают удар, направленный в живот/пах/ноги. Обычно делается предплечьем сверху вниз.'},
+      {c:'check', t:'Что такое «каундэ макки»?', ans:'Защита средней части тела.', why:'Самый частый блок. Защищает корпус — солнечное сплетение, грудь. Предплечьем отводят удар наружу или внутрь.'},
+      {c:'check', t:'Что такое «чукё макки»?', ans:'Верхний блок.', why:'«Чукё» = поднимающий. Рука резко поднимается над головой, защищая от удара сверху или в голову.'},
+      {c:'check', t:'Что такое «хечё макки»?', ans:'Расклинивающий блок.', why:'«Хечё» = распахивающий. Обе руки одновременно расходятся в стороны, отводя двойной захват или одновременную атаку с двух рук.'},
+    ]},
+  ]},
+  {date:'Пт, 22 мая', iso:'2026-05-22', sub:'Свободный день. Теория мощности + хъёнги', kind:'free', tasks:[
+    {sec:'РАСТЯЖКА (полный блок)', items:[
+      {c:'stretch', t:'Разминка 3 мин'},
+      {c:'stretch', t:'Махи ногами — по 20 на каждую'},
+      {c:'stretch', t:'Продольный шпагат — по 2,5 мин'},
+      {c:'stretch', t:'Поперечный шпагат — 4 мин'},
+      {c:'stretch', t:'Мостик — 1 мин × 2'},
+    ]},
+    {sec:'ТЕОРИЯ МОЩНОСТИ — 6 КОМПОНЕНТОВ', items:[
+      {c:'theory', t:'Теория мощности — это система, придуманная Чой Хон Хи. Объясняет, как даже слабый человек может нанести сокрушительный удар за счёт правильной техники'},
+      {c:'theory', t:'1. РЕАКЦИЯ МАССЫ — одна часть тела работает на удар, другая на противоход (рука бьёт вперёд — вторая отдёргивается к поясу)'},
+      {c:'theory', t:'2. КОНЦЕНТРАЦИЯ — в момент удара вся сила фокусируется в малой точке (костяшках кулака, ребре стопы)'},
+      {c:'theory', t:'3. РАВНОВЕСИЕ — без устойчивости нет силы. Центр тяжести должен быть точно над опорой'},
+      {c:'theory', t:'4. КОНТРОЛЬ ДЫХАНИЯ — резкий выдох в момент удара. Это даёт киап (боевой крик) и усиливает удар'},
+      {c:'theory', t:'5. СКОРОСТЬ — сила = масса × ускорение². Чем быстрее движение, тем мощнее удар'},
+      {c:'theory', t:'6. ПОДВИЖНОСТЬ МАССЫ — в удар вкладывается вес всего тела через бедро, а не только сила руки или ноги'},
+    ]},
+    {sec:'ХЪЁНГИ — ОБЩЕЕ', items:[
+      {c:'theory', t:'ХЪЁНГ (ТУЛЬ) — технический формальный комплекс'},
+      {c:'theory', t:'В программе тхэквондо ИТФ всего 24 базовых туля'},
+      {c:'theory', t:'МАССОГИ — спарринг'},
+    ]},
+    {sec:'САДЖУ — ПЕРВЫЕ КОМПЛЕКСЫ (10-11 гыпы)', items:[
+      {c:'theory', t:'Саджу Чириги — «Удар на четыре стороны». 16 движений'},
+      {c:'theory', t:'Саджу Макки — «Блок в четыре направления»'},
+    ]},
+    {sec:'ЧОН-ДЖИ — 9 ГЫП', items:[
+      {c:'theory', t:'Перевод: «Рай земной»'},
+      {c:'theory', t:'19 движений'},
+    ]},
+    {sec:'ДАН-ГУН — 8 ГЫП', items:[
+      {c:'theory', t:'Назван в честь легендарного основателя Кореи Дан-Гуна'},
+      {c:'theory', t:'21 движение'},
+    ]},
+    {sec:'ХЪЁНГ', items:[
+      {c:'mind', t:'Прогон До-Сан ×2'},
+    ]},
+    {sec:'ПАПА СПРОСИТ', items:[
+      {c:'check', t:'Что такое теория мощности?', ans:'Это система, объясняющая, как нанести сильный удар при минимуме физической силы — за счёт правильной техники.', why:'Её придумал генерал Чой Хон Хи. Главная идея: <strong>сила удара зависит не от мышц, а от того, как тело движется</strong>. Поэтому в тхэквондо ребёнок может пробить доску.'},
+      {c:'check', t:'Сколько компонентов в теории мощности и какие?', ans:'Шесть: реакция массы, концентрация, равновесие, контроль дыхания, скорость, подвижность массы.', why:'Все шесть работают <strong>вместе</strong>. Без одного — удар слабый. Например: есть скорость, но нет равновесия → потеряешь устойчивость и удар уйдёт в пустоту.'},
+      {c:'check', t:'Что такое «реакция массы»?', ans:'Когда одна часть тела бьёт вперёд, другая идёт в противоположную сторону — это удваивает силу удара.', why:'Например, бьёшь правой рукой — левая резко отдёргивается к поясу. Это не «помощь», а <strong>физика</strong>: третий закон Ньютона. Корпус становится единым рычагом.'},
+      {c:'check', t:'Зачем нужен контроль дыхания?', ans:'Резкий выдох в момент удара напрягает мышцы корпуса, защищает внутренние органы и увеличивает силу удара. Это и есть «киап».', why:'Если ударить на вдохе — расслабленный корпус пробивается, и удар получится вполсилы. Поэтому в зале часто кричат — крик это и есть резкий выдох.'},
+      {c:'check', t:'Почему важна скорость?', ans:'Потому что сила удара зависит от скорости в квадрате. Удвоил скорость — учетверил силу.', why:'Формула из физики: F = m × a (масса × ускорение). Поэтому быстрый и точный удар маленького бойца может быть сильнее медленного удара большого.'},
+      {c:'check', t:'Что означает термин «хъёнг (туль)»?', ans:'Технические (формальные) комплексы.', why:'Это <strong>заученные последовательности</strong> движений, имитирующие бой с воображаемыми противниками. Каждый хъёнг — это «учебник» определённого уровня.'},
+      {c:'check', t:'Что значит «массоги»?', ans:'Спарринг.', why:'Учебный бой с реальным партнёром, с контактом или без. Это противоположность хъёнга — там воображаемый противник, тут настоящий.'},
+      {c:'check', t:'Сколько всего базовых тулей в программе тхэквондо?', ans:'24.', why:'Цифра 24 имеет символический смысл — она соответствует <strong>24 часам в сутках</strong> (один день человеческой жизни как метафора всей жизни мастера).'},
+      {c:'check', t:'Какой хъёнг соответствует 9 гыпу? Сколько движений?', ans:'Чон-Джи. 19 движений.', why:'Чон-Джи переводится как «Рай земной» или «Небо и Земля». На Востоке это символ <strong>начала творения</strong> — поэтому первый хъёнг.'},
+      {c:'check', t:'Какой хъёнг соответствует 8 гыпу? Сколько движений? В честь кого?', ans:'Дан-Гун. 21 движение. В честь легендарного основателя Кореи.', why:'По корейским мифам, Дан-Гун основал первое корейское государство Чосон в 2333 году до н.э. Это символ корейской идентичности.'},
+      {c:'check', t:'Как переводится «Саджу Чириги»?', ans:'Удар на четыре стороны. 16 движений.', why:'«Саджу» = четыре стороны (как стороны света), «чириги» = пробивающий удар. Это упражнение, а не полноценный хъёнг — учат самым новичкам.'},
+      {c:'check', t:'Как переводится «Саджу Макки»?', ans:'Блок в четыре направления.', why:'Те же четыре стороны, но с блоками вместо ударов. Учат вместе с Саджу Чириги — это базовая координация.'},
+    ]},
+  ]},
+  {date:'Сб, 23 мая', iso:'2026-05-23', sub:'Тренировка в зале + До-Сан подробно', kind:'gym', tasks:[
+    {sec:'РАСТЯЖКА (после зала)', items:[
+      {c:'stretch', t:'Продольный шпагат — по 2 мин'},
+      {c:'stretch', t:'Поперечный шпагат — 3 мин'},
+    ]},
+    {sec:'ДО-САН — ТВОЙ ХЪЁНГ НА 7 ГЫП', items:[
+      {c:'theory', t:'Назван в честь патриота АН ЧАН ХО (1876–1938), его псевдоним — До-Сан'},
+      {c:'theory', t:'Ан Чан Хо посвятил жизнь развитию образования Кореи и движению за независимость'},
+      {c:'theory', t:'Хъёнг До-Сан содержит 24 движения'},
+      {c:'theory', t:'24 движения = возраст, в котором Ан Чан Хо начал служение Родине'},
+      {c:'theory', t:'До-Сан изучается на 7 гып (жёлто-зелёный пояс)'},
+    ]},
+    {sec:'ХЪЁНГ', items:[
+      {c:'mind', t:'Прогон До-Сан ×3 (медленно, средне, в боевом темпе)'},
+    ]},
+    {sec:'ПАПА СПРОСИТ', items:[
+      {c:'check', t:'В честь кого назван хъёнг До-Сан?', ans:'В честь патриота Ан Чан Хо (1876–1938). До-Сан — его псевдоним.', why:'Ан Чан Хо был корейским борцом за независимость во времена японской оккупации. Он создавал школы, организовывал движение за свободу. «До-Сан» означает «Гора Пути» — символ силы и стойкости.'},
+      {c:'check', t:'Сколько движений в хъёнге До-Сан и почему?', ans:'24 движения. По возрасту, в котором Ан Чан Хо начал служение Родине.', why:'В 24 года он посвятил жизнь борьбе за независимость Кореи. Каждое движение хъёнга — символический год его служения.'},
+      {c:'check', t:'На какой гып изучается хъёнг До-Сан?', ans:'На 7 гып (жёлто-зелёный пояс).', why:'Это твой следующий пояс. После аттестации ты будешь носить именно жёлто-зелёный пояс и изучать на нём следующий хъёнг — Вон-Хё (для 6 гыпа).'},
+    ]},
+  ]},
+  {date:'Вс, 24 мая', iso:'2026-05-24', sub:'Свободный день. КОНТРОЛЬНЫЙ ПРОГОН', kind:'free', tasks:[
+    {sec:'РАСТЯЖКА (полный блок)', items:[
+      {c:'stretch', t:'Разминка 5 мин'},
+      {c:'stretch', t:'Махи ногами — по 20'},
+      {c:'stretch', t:'Продольный шпагат — по 3 мин'},
+      {c:'stretch', t:'Поперечный шпагат — 5 мин'},
+      {c:'stretch', t:'Наклоны — 3 мин'},
+      {c:'stretch', t:'Мостик — 1 мин × 3'},
+    ]},
+    {sec:'ПИСЬМЕННОЕ ТЕСТИРОВАНИЕ', items:[
+      {c:'theory', t:'Открой блокнот. Напиши по памяти: 5 принципов, корейский счёт 1-10, 5 команд тренера'},
+      {c:'theory', t:'Напиши: 5 стоек, 4 удара ногами, 4 блока — по-корейски с переводом'},
+      {c:'theory', t:'Напиши: какие хъёнги на 9, 8, 7 гып. Кто вдохновители, сколько движений'},
+      {c:'theory', t:'Напиши: 6 компонентов теории мощности'},
+      {c:'theory', t:'Что не вспомнил — открой шпаргалку и повтори трижды'},
+    ]},
+    {sec:'ХЪЁНГ', items:[
+      {c:'mind', t:'Прогон До-Сан ×3'},
+    ]},
+    {sec:'ПАПА СПРОСИТ — УСТНЫЙ ЭКЗАМЕН', items:[
+      {c:'check', t:'Что такое тхэквондо и как переводится?', ans:'Корейское боевое искусство и Олимпийский вид спорта. Тхэ — нога, квон — кулак, до — путь.', why:'Это твой самый базовый ответ. С него обычно начинают теорию на аттестации.'},
+      {c:'check', t:'Кто основатель? Когда объявлено о создании стиля?', ans:'Генерал Чой Хон Хи. 11 апреля 1955 года.', why:'Помни: <strong>1955 — объявление стиля</strong>, а 1966 — основание ИТФ. Это разные события, тренер может проверить, не путаешь ли.'},
+      {c:'check', t:'Когда основана ГТФ? Какая федерация на Олимпиаде?', ans:'ГТФ — в 1990 году. На Олимпиаде — ВТФ (WTF).', why:'Наш клуб работает по правилам ГТФ. Олимпийские игры — это формат другой федерации (ВТФ). Эти системы отличаются правилами и техникой.'},
+      {c:'check', t:'5 принципов тхэквондо в порядке.', ans:'1. Учтивость. 2. Честность. 3. Настойчивость. 4. Самообладание. 5. Непоколебимость духа.', why:'Эти принципы — главная духовная часть тхэквондо. Тренер всегда спрашивает их на аттестации.'},
+      {c:'check', t:'Сколько гыпов в ГТФ? Какого цвета пояса НЕТ?', ans:'10 гыпов. Фиолетового цвета нет.', why:'Цвета: белый, жёлтый, зелёный, синий, красный. Фиолетового нет ни в одной системе тхэквондо — это часто проверяют как «вопрос с подвохом».'},
+      {c:'check', t:'Счёт по-корейски 1-10.', ans:'Хана, туль, сет, нет, дасот, йосот, ильхоп, йодоль, ахоп, йоль.', why:'Если запинаешься — повтори ещё трижды до экзамена. Этот счёт услышишь от тренера в первую же минуту.'},
+      {c:'check', t:'5 команд тренера по-корейски.', ans:'Чумби (приготовиться), Си джак (начать), Баро (стоп), Хэчё (разойтись), Кёнэ (поклон).', why:'Эти команды звучат каждую тренировку — знать их обязательно. Аттестация начинается с «Чумби» и заканчивается «Кёнэ».'},
+      {c:'check', t:'Назови 4 стойки.', ans:'Чарёт соги, нарани соги, аннун соги, гуннун соги.', why:'Плюс ниунджа соги (задняя) — для До-Сан. Всего знай 5 стоек.'},
+      {c:'check', t:'Назови 4 удара ногами.', ans:'Ап чаги, доллио чаги, ёп чаги, твит чаги.', why:'Вперёд, круговой, боковой, назад — четыре основных направления. Помнить переводы.'},
+      {c:'check', t:'Назови 4 блока.', ans:'Наджундэ макки, каундэ макки, чукё макки, хечё макки.', why:'Нижний, средний, верхний, расклинивающий. Три уровня тела + один особый.'},
+      {c:'check', t:'Назови хъёнги на 9, 8, 7 гыпы.', ans:'9 — Чон-Джи. 8 — Дан-Гун. 7 — До-Сан.', why:'Хъёнги нумеруются от младшего к старшему. До-Сан — твой следующий, на 7 гып.'},
+      {c:'check', t:'В честь кого назван До-Сан и сколько в нём движений?', ans:'В честь патриота Ан Чан Хо (псевдоним До-Сан). 24 движения — по возрасту начала его служения Родине.', why:'Главный вопрос аттестации на 7 гып. Знать без запинок.'},
+      {c:'check', t:'6 компонентов теории мощности.', ans:'1. Реакция массы. 2. Концентрация. 3. Равновесие. 4. Контроль дыхания. 5. Скорость. 6. Подвижность массы.', why:'Теория мощности — авторская система Чой Хон Хи. Это <strong>фундамент техники тхэквондо</strong>. Без неё удар — это просто размахивание руками.'},
+    ]},
+  ]},
+  {date:'Пн, 25 мая', iso:'2026-05-25', sub:'Свободный день. Финишная неделя', kind:'free', tasks:[
+    {sec:'РАСТЯЖКА', items:[
+      {c:'stretch', t:'Разминка 3 мин'},
+      {c:'stretch', t:'Продольный шпагат — по 2 мин'},
+      {c:'stretch', t:'Поперечный шпагат — 3 мин'},
+    ]},
+    {sec:'РАЗБОР СЛАБЫХ МЕСТ', items:[
+      {c:'theory', t:'Посмотри вчерашний тест: какие 5 вопросов были самые трудные? Повтори их трижды вслух'},
+      {c:'theory', t:'Если затрудняешься с корейским счётом — повтори 1-10 пять раз'},
+      {c:'theory', t:'Если путаешь блоки — нарисуй на бумаге 4 уровня и подпиши по-корейски'},
+      {c:'theory', t:'Если путаешь компоненты теории мощности — запиши их по памяти и сравни с эталоном'},
+    ]},
+    {sec:'ХЪЁНГ', items:[
+      {c:'mind', t:'Прогон До-Сан ×2'},
+    ]},
+    {sec:'ПАПА СПРОСИТ', items:[
+      {c:'check', t:'Назови 3 термина, которые вчера не вспомнил.', ans:'(Сын сам называет — папа сверяется со вчерашним тестом)', why:'Это упражнение на честность к себе. Признать, что не знаешь — первый шаг к тому, чтобы выучить.'},
+    ]},
+  ]},
+  {date:'Вт, 26 мая', iso:'2026-05-26', sub:'Тренировка в зале. Дома — повтор', kind:'gym', tasks:[
+    {sec:'РАСТЯЖКА (после зала)', items:[
+      {c:'stretch', t:'Продольный шпагат — по 1,5 мин'},
+      {c:'stretch', t:'Наклоны — 2 мин'},
+    ]},
+    {sec:'ПОВТОР — ВСЁ КРАТКО', items:[
+      {c:'theory', t:'Прочитай вслух 5 принципов'},
+      {c:'theory', t:'Прочитай вслух корейский счёт 1-10'},
+      {c:'theory', t:'Прочитай вслух: стойки, удары руками, удары ногами, блоки'},
+      {c:'theory', t:'Прочитай вслух 6 компонентов теории мощности'},
+    ]},
+    {sec:'ХЪЁНГ', items:[
+      {c:'mind', t:'Прогон До-Сан ×2'},
+    ]},
+    {sec:'ПАПА СПРОСИТ', items:[
+      {c:'check', t:'Блиц: 3 быстрых вопроса по терминам.', ans:'(Папа выбирает случайные термины из всего списка)', why:'Скорость ответа на блицах — показатель того, насколько уверенно сидит знание. Чем быстрее — тем глубже выучено.'},
+    ]},
+  ]},
+  {date:'Ср, 27 мая', iso:'2026-05-27', sub:'Индивидуально с тренером. Дома — мягко', kind:'solo', tasks:[
+    {sec:'РАСТЯЖКА', items:[
+      {c:'stretch', t:'Мягкая разминка 5 мин'},
+      {c:'stretch', t:'Продольный шпагат — по 2 мин (без рывков)'},
+      {c:'stretch', t:'Наклоны — 3 мин'},
+    ]},
+    {sec:'СПОКОЙНЫЙ ПОВТОР', items:[
+      {c:'theory', t:'Прочитай тихо вслух всю теорию по порядку — без напряга, как разговор'},
+    ]},
+    {sec:'ХЪЁНГ', items:[
+      {c:'mind', t:'Прогон До-Сан ×1 (медленно, осознанно)'},
+    ]},
+    {sec:'ПАПА СПРОСИТ', items:[
+      {c:'check', t:'Какой вопрос ты бы себе задал, чтобы проверить — готов или нет?', ans:'(Сын придумывает сам — упражнение на осознанность)', why:'Этот вопрос важнее правильных ответов. Тот, кто сам себя проверяет, готовится по-настоящему. Это и есть «гук-ги» — самообладание.'},
+    ]},
+  ]},
+  {date:'Чт, 28 мая', iso:'2026-05-28', sub:'Тренировка в зале. Подготовка к экзамену', kind:'gym', tasks:[
+    {sec:'РАСТЯЖКА (после зала)', items:[
+      {c:'stretch', t:'Лёгкая растяжка 10 мин'},
+    ]},
+    {sec:'ПРОВЕРКА ГОТОВНОСТИ', items:[
+      {c:'theory', t:'Проверить добок и пояс — чистые и поглажены'},
+      {c:'theory', t:'Проверить защиту (если нужна) и бутылку с водой'},
+      {c:'theory', t:'Беглый просмотр конспекта — не учить новое, только освежить'},
+    ]},
+    {sec:'ХЪЁНГ', items:[
+      {c:'mind', t:'Прогон До-Сан ×2 (спокойно, в своём темпе)'},
+    ]},
+    {sec:'ПАПА СПРОСИТ', items:[
+      {c:'check', t:'Что чувствуешь перед экзаменом?', ans:'(Поговорить, поддержать)', why:'Волнение — нормально. Это значит, что тебе не всё равно. Принцип «инь-нэ» (настойчивость) учит: иди вперёд даже когда страшно.'},
+    ]},
+  ]},
+  {date:'Пт, 29 мая', iso:'2026-05-29', sub:'Накануне. Только отдых', kind:'free', tasks:[
+    {sec:'РАСТЯЖКА (мягко)', items:[
+      {c:'stretch', t:'Лёгкая растяжка 10 мин. Без силовых, без боли'},
+    ]},
+    {sec:'БЕГЛЫЙ ПОВТОР', items:[
+      {c:'theory', t:'Перед сном — самое важное: 5 принципов, корейский счёт, До-Сан = Ан Чан Хо, 24 движения'},
+    ]},
+    {sec:'ХЪЁНГ', items:[
+      {c:'mind', t:'Прогон До-Сан ×1 в голове перед сном'},
+    ]},
+    {sec:'ПАПА СПРОСИТ', items:[
+      {c:'check', t:'Лечь спать пораньше. Уверенно. Ты готов.', ans:'(Поддержка, не вопрос)', why:'Сон накануне важнее любого последнего повтора. Уставший боец проигрывает свежему — это правило работает и на аттестации.'},
+    ]},
+  ]},
+  {date:'Сб, 30 мая — АТТЕСТАЦИЯ', iso:'2026-05-30', sub:'День экзамена. Просто иди и сдавай', kind:'exam', tasks:[
+    {sec:'ЧЕК-ЛИСТ ВЫХОДА', items:[
+      {c:'check', t:'Лёгкий завтрак за 2 часа до выхода (не объедайся)'},
+      {c:'check', t:'Добок, пояс, защита, бутылка с водой'},
+      {c:'check', t:'Прийти за 30 минут до начала'},
+      {c:'check', t:'Глубокий вдох. Помни: ты готовился. Иди и покажи'},
+    ]},
+  ]},
+];
+
+const CAT_LABELS = { stretch:'РАСТЯЖКА', theory:'ТЕО', korean:'КОР', mind:'ХЪЁНГ', check:'ПАПА' };
+
+const STORAGE_KEY = 'taipan_attestation_v3';
+let progress = {};
+
+function loadProgress() {
+  try {
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#p=')) {
+      const data = decodeURIComponent(hash.slice(3));
+      const parsed = JSON.parse(atob(data));
+      if (parsed && typeof parsed === 'object') { progress = parsed; return; }
+    }
+  } catch(e) {}
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) progress = JSON.parse(raw) || {};
+  } catch(e) { progress = {}; }
+}
+
+function saveProgress() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); } catch(e) {}
+}
+
+function allItems(day) {
+  return day.tasks.flatMap(s => s.items);
+}
+
+function getTotals() {
+  let total = 0, done = 0;
+  DAYS.forEach((d,i) => {
+    allItems(d).forEach((_,j) => {
+      total++;
+      if (progress[`${i}-${j}`]) done++;
+    });
+  });
+  return { total, done };
+}
+
+function getDaysLeft() {
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  return Math.max(0, Math.ceil((EXAM_DATE - today) / 86400000));
+}
+
+function getTodayIdx() {
+  const today = new Date();
+  const iso = today.getFullYear() + '-' + String(today.getMonth()+1).padStart(2,'0') + '-' + String(today.getDate()).padStart(2,'0');
+  return DAYS.findIndex(d => d.iso === iso);
+}
+
+function getDayStatus(idx) {
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  const dayDate = new Date(DAYS[idx].iso);
+  if (dayDate < today) return 'past';
+  if (dayDate.toDateString() === today.toDateString()) return 'today';
+  return 'future';
+}
+
+function dayBadge(kind) {
+  if (kind === 'gym') return '<span class="day-badge day-badge-gym">Зал</span>';
+  if (kind === 'solo') return '<span class="day-badge day-badge-solo">Индивид.</span>';
+  return '';
+}
+
+function escapeHtml(str) {
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+// Разрешаем только <strong> внутри объяснений (комментариев)
+function safeCommentHtml(str) {
+  const escaped = escapeHtml(str);
+  return escaped.replace(/&lt;strong&gt;/g, '<strong>').replace(/&lt;\/strong&gt;/g, '</strong>');
+}
+
+function render() {
+  const { total, done } = getTotals();
+  const pct = total ? Math.round(done * 100 / total) : 0;
+
+  document.getElementById('days-left').textContent = getDaysLeft();
+  document.getElementById('done-count').textContent = done;
+  document.getElementById('total-count').textContent = total;
+  document.getElementById('progress-percent').textContent = pct + '%';
+  document.getElementById('progress-fill').style.width = pct + '%';
+
+  const root = document.getElementById('days-root');
+
+  root.innerHTML = DAYS.map((d, i) => {
+    const items = allItems(d);
+    const dayDone = items.filter((_,j) => progress[`${i}-${j}`]).length;
+    const dayTotal = items.length;
+    const complete = dayDone === dayTotal && dayTotal > 0;
+    const status = getDayStatus(i);
+    const isToday = status === 'today';
+
+    const classes = ['day'];
+    if (d.kind === 'gym') classes.push('gym');
+    if (d.kind === 'solo') classes.push('solo');
+    if (d.kind === 'exam') classes.push('exam');
+    if (status === 'past') classes.push('past');
+    if (isToday) classes.push('today', 'open');
+
+    let itemIdx = 0;
+    const sectionsHTML = d.tasks.map(section => {
+      const itemsHTML = section.items.map(t => {
+        const key = `${i}-${itemIdx}`;
+        const checked = !!progress[key];
+        const hasAnswer = t.ans || t.why;
+        let ansHTML = '';
+        if (hasAnswer) {
+          let blockInner = '';
+          if (t.ans) blockInner += `<div class="answer-text">${escapeHtml(t.ans)}</div>`;
+          if (t.why) blockInner += `<div class="answer-comment">${safeCommentHtml(t.why)}</div>`;
+          ansHTML = `<button class="answer-toggle" onclick="toggleAnswer('${key}-ans', this)">Показать ответ</button><div class="answer-block" id="${key}-ans">${blockInner}</div>`;
+        }
+        const html = `<div class="task ${checked ? 'done' : ''}"><input type="checkbox" id="t-${key}" ${checked ? 'checked' : ''} onchange="toggleTask(${i},${itemIdx})"/><div class="task-body"><label for="t-${key}">${escapeHtml(t.t)}</label>${ansHTML}</div></div>`;
+        itemIdx++;
+        return html;
+      }).join('');
+      return `<div class="task-section">${escapeHtml(section.sec)}</div>${itemsHTML}`;
+    }).join('');
+
+    return `<div class="${classes.join(' ')}" data-idx="${i}"><div class="day-head" onclick="toggleDay(${i})"><div class="day-info"><div class="day-date">${escapeHtml(d.date)} ${dayBadge(d.kind)} ${isToday ? '<span class="today-mark">Сегодня</span>' : ''}</div><div class="day-sub">${escapeHtml(d.sub)}</div></div><div class="day-meta"><div class="day-count ${complete ? 'complete' : ''}">${dayDone}/${dayTotal}</div><div class="day-count-total">задач</div></div><div class="chevron">›</div></div><div class="tasks"><div class="tasks-inner">${sectionsHTML}</div></div></div>`;
+  }).join('');
+}
+
+function toggleTask(dayIdx, itemIdx) {
+  const key = `${dayIdx}-${itemIdx}`;
+  if (progress[key]) delete progress[key];
+  else progress[key] = Date.now();
+  saveProgress();
+  render();
+}
+
+function toggleDay(idx) {
+  const el = document.querySelector(`[data-idx="${idx}"]`);
+  if (el) el.classList.toggle('open');
+}
+
+function toggleAnswer(id, btn) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const isOpen = el.classList.toggle('show');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'Скрыть ответ' : 'Показать ответ';
+}
+
+function expandAll() { document.querySelectorAll('.day').forEach(d => d.classList.add('open')); }
+function collapseAll() { document.querySelectorAll('.day').forEach(d => d.classList.remove('open')); }
+
+function resetAll() {
+  if (!confirm('Сбросить ВСЕ галочки? Это действие нельзя отменить.')) return;
+  progress = {};
+  saveProgress();
+  render();
+}
+
+function buildReport() {
+  const today = new Date();
+  const dateStr = today.toLocaleDateString('ru-RU', { day:'numeric', month:'long' });
+  const { total, done } = getTotals();
+  const pct = total ? Math.round(done * 100 / total) : 0;
+
+  let report = `🥋 ОТЧЁТ К АТТЕСТАЦИИ\nСегодня: ${dateStr}\n\n`;
+  report += `Общий прогресс: ${done} из ${total} (${pct}%)\n`;
+  report += `До аттестации: ${getDaysLeft()} дн.\n\n`;
+  report += `── ПО ДНЯМ ──\n`;
+
+  DAYS.forEach((d, i) => {
+    const items = allItems(d);
+    const dayDone = items.filter((_,j) => progress[`${i}-${j}`]).length;
+    const dayTotal = items.length;
+    const status = getDayStatus(i);
+    if (status === 'future' && dayDone === 0) return;
+    const mark = dayDone === dayTotal ? '✓' : (status === 'past' ? '✗' : '·');
+    const kindMark = d.kind === 'gym' ? ' [Зал]' : d.kind === 'solo' ? ' [Индив.]' : '';
+    report += `${mark} ${d.date}${kindMark}: ${dayDone}/${dayTotal}\n`;
+  });
+
+  const todayIdx = getTodayIdx();
+  if (todayIdx >= 0) {
+    const items = allItems(DAYS[todayIdx]);
+    const undone = items.map((t,j) => ({ t, j, done: !!progress[`${todayIdx}-${j}`] })).filter(x => !x.done);
+    if (undone.length > 0) {
+      report += `\n── ОСТАЛОСЬ НА СЕГОДНЯ ──\n`;
+      undone.forEach(x => {
+        report += `□ [${CAT_LABELS[x.t.c]}] ${x.t.t}\n`;
+      });
+    }
+  }
+
+  return report;
+}
+
+function openReport() {
+  document.getElementById('report-text').textContent = buildReport();
+  document.getElementById('report-modal').classList.add('show');
+}
+
+function closeReport() {
+  document.getElementById('report-modal').classList.remove('show');
+}
+
+function copyReport() {
+  const text = buildReport();
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => showToast('Скопировано в буфер'));
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); showToast('Скопировано'); }
+    catch(e) { showToast('Не удалось скопировать'); }
+    document.body.removeChild(ta);
+  }
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+loadProgress();
+render();
+
+setInterval(() => {
+  const cur = document.querySelector('.day.today');
+  const expectedIdx = getTodayIdx();
+  if (cur && parseInt(cur.dataset.idx) !== expectedIdx) render();
+}, 60000);
+</script>
+
+</body>
+</html>
